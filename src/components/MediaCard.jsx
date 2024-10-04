@@ -23,6 +23,11 @@ const MediaCard = ({ musicNumber, setMusicNumber, setOpen, songs, open }) => {
 
     const toggleVolume = () => setShowVolume(prev => !prev);
 
+    const handleTouchStart = (e) => {
+        // Prevent default behavior on touch
+        e.preventDefault(); 
+    };
+
     const handleMute = () => {
         setIsMuted(prev => !prev);
         if (audioRef.current) {
@@ -127,6 +132,7 @@ const MediaCard = ({ musicNumber, setMusicNumber, setOpen, songs, open }) => {
                             max={100}
                             value={volume}
                             onChange={handleVolumeChange}
+                            onTouchStart={handleTouchStart}
                         />
                         <span>{volume}</span>
                     </div>
