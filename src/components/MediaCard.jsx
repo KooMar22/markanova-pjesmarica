@@ -25,8 +25,17 @@ const MediaCard = ({ musicNumber, setMusicNumber, setOpen, songs, open }) => {
 
     const handleMute = () => {
         setIsMuted(prev => !prev);
-        // Restore volume if unmuted, otherwise mute
-        setVolume(isMuted ? 50 : 0); 
+        if (audioRef.current) {
+            audioRef.current.muted = !audioRef.current.muted;
+        }
+    };
+
+    const handleVolumeChange = (e) => {
+        const newVolume = Number(e.target.value);
+        setVolume(newVolume);
+        if (audioRef.current) {
+            audioRef.current.volume = newVolume / 100;
+        }
     };
 
     // Define songs info
@@ -112,8 +121,13 @@ const MediaCard = ({ musicNumber, setMusicNumber, setOpen, songs, open }) => {
                         <i className="material-symbols-outlined" onClick={handleMute}>
                             {isMuted ? "volume_off" : "volume_up"}
                         </i>
-                        <input type="range" min={0} max={100} value={volume}
-                            onChange={e => setVolume(Number(e.target.value))} />
+                        <input
+                            type="range"
+                            min={0}
+                            max={100}
+                            value={volume}
+                            onChange={handleVolumeChange}
+                        />
                         <span>{volume}</span>
                     </div>
                 )}
@@ -123,6 +137,7 @@ const MediaCard = ({ musicNumber, setMusicNumber, setOpen, songs, open }) => {
                 src={songFilePath}
                 ref={audioRef}
                 onTimeUpdate={changeCurrentTime}
+                muted={isMuted}
             />
         </div>
     );
