@@ -4,7 +4,7 @@ import { timer } from "../utils/timer";
 import { useGenres } from "../services/useGenres";
 import { useSongs } from "../services/useSongs";
 
-const SongsList = ({ open, musicNumber, setMusicNumber, setSongs, setPlay }) => {
+const SongsList = ({ open, musicNumber, setMusicNumber, setSongs }) => {
     // Handle selected genres state
     const [selectedGenre, setSelectedGenre] = useState(null);
     
@@ -27,8 +27,6 @@ const SongsList = ({ open, musicNumber, setMusicNumber, setSongs, setPlay }) => 
     const handleSongSelect = (index) => {
         // Set the current song number
         setMusicNumber(index); 
-        // Automatically play the song
-        setPlay(true); 
     };
 
     if (loadingGenres) return (
