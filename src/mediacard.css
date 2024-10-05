@@ -170,6 +170,7 @@
 
 @media (orientation: portrait) {
     .portrait {
-        margin-bottom: 3%;
+        margin-top: 5%;
+        margin-bottom: 5%;
     }
 }
