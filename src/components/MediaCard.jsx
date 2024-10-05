@@ -53,10 +53,9 @@ const MediaCard = ({ musicNumber, setMusicNumber, setOpen, songs, open }) => {
         }
     };
 
-
     useEffect(() => {
         const handleVolumeKeyPress = (e) => {
-            if (e.key === 'ArrowUp') {
+            if (e.key === "ArrowUp" || e.target === "VolumeUp") {
                 // Increase volume on arrow up key press
                 setVolume((prevVolume) => {
                     // Increment by 5, max 100
@@ -66,7 +65,7 @@ const MediaCard = ({ musicNumber, setMusicNumber, setOpen, songs, open }) => {
                     }
                     return newVolume;
                 });
-            } else if (e.key === 'ArrowDown') {
+            } else if (e.key === "ArrowDown" || e.target === "VolumeDown") {
                 // Decrease volume on arrow down key press
                 setVolume((prevVolume) => {
                     // Decrement by 5, min 0
@@ -78,9 +77,9 @@ const MediaCard = ({ musicNumber, setMusicNumber, setOpen, songs, open }) => {
                 });
             }
         };
-        window.addEventListener('keydown', handleVolumeKeyPress);
+        window.addEventListener("keydown", handleVolumeKeyPress);
         return () => {
-            window.removeEventListener('keydown', handleVolumeKeyPress);
+            window.removeEventListener("keydown", handleVolumeKeyPress);
         };
     }, [audioRef, setVolume]);
 

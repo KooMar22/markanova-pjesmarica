@@ -44,7 +44,7 @@ export const useAudioPlayer = (initialVolume = 50, songs, musicNumber, setMusicN
         if (songs.length > 0 && musicNumber < songs.length) {
             const currentSong = songs[musicNumber];
 
-            // Load the song's location if not already loaded
+            // Load the song"s location if not already loaded
             if (audioRef.current.src !== currentSong.file_path) {
                 audioRef.current.src = currentSong.file_path;
                 audioRef.current.load();
@@ -79,9 +79,9 @@ export const useAudioPlayer = (initialVolume = 50, songs, musicNumber, setMusicN
                 }
             };
 
-            audioRef.current.addEventListener('loadedmetadata', handleLoadedMetadata);
-            audioRef.current.addEventListener('timeupdate', handleTimeUpdate);
-            audioRef.current.addEventListener('ended', handleEnded);
+            audioRef.current.addEventListener("loadedmetadata", handleLoadedMetadata);
+            audioRef.current.addEventListener("timeupdate", handleTimeUpdate);
+            audioRef.current.addEventListener("ended", handleEnded);
 
             if (play) {
                 audioRef.current.play();
@@ -89,9 +89,9 @@ export const useAudioPlayer = (initialVolume = 50, songs, musicNumber, setMusicN
 
             return () => {
                 audioRef.current.pause();
-                audioRef.current.removeEventListener('loadedmetadata', handleLoadedMetadata);
-                audioRef.current.removeEventListener('timeupdate', handleTimeUpdate);
-                audioRef.current.removeEventListener('ended', handleEnded);
+                audioRef.current.removeEventListener("loadedmetadata", handleLoadedMetadata);
+                audioRef.current.removeEventListener("timeupdate", handleTimeUpdate);
+                audioRef.current.removeEventListener("ended", handleEnded);
             };
         }
     }, [songs, musicNumber, play, repeat]);
@@ -113,7 +113,7 @@ export const useAudioPlayer = (initialVolume = 50, songs, musicNumber, setMusicN
             audioRef.current.currentTime = newTime; 
         } else {
             // Log error for invalid time
-            console.error('Invalid time value:', newTime); 
+            console.error("Invalid time value:", newTime); 
         }
     };
 
