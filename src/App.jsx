@@ -13,7 +13,7 @@ const App = () => {
   // State for tracking the current music index
   const [musicNumber, setMusicNumber] = useState(0); 
   // State for managing SongsList visibility
-  const [open, setOpen] = useState(false); 
+  const [open, setOpen] = useState(true); 
   // State to store songs from SongsList
   const [songs, setSongs] = useState([]); 
 
