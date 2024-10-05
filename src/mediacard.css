@@ -169,5 +169,7 @@
 }
 
 @media (orientation: portrait) {
-
+    .card > .nav, .portrait .details {
+        height: 10dvh;
+    }
 }
