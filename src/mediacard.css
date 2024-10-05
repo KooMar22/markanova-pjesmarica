@@ -167,3 +167,9 @@
         margin: auto;
     }
 }
+
+@media (orientation: portrait) {
+    .card {
+        height: 95dvh;
+    }
+}
