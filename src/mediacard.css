@@ -167,9 +167,3 @@
         margin: auto;
     }
 }
-
-@media (orientation: portrait) {
-    .body {
-        height: 80dvh;
-    }
-}
