@@ -169,5 +169,7 @@
 }
 
 @media (orientation: portrait) {
-
+    .portrait {
+        margin-bottom: 3%;
+    }
 }
