@@ -26,7 +26,7 @@ const App = () => {
             musicNumber={musicNumber} 
             setMusicNumber={setMusicNumber} 
             setOpen={setOpen} 
-            songs={songs} // Pass the songs array
+            songs={songs}
             open={open}
           />
           <SongsList 
