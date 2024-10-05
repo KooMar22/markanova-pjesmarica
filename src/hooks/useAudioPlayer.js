@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 
 export const useAudioPlayer = (initialVolume = 50, songs, musicNumber, setMusicNumber) => {
-    const [play, setPlay] = useState(true);
+    const [play, setPlay] = useState(false);
     const [volume, setVolume] = useState(initialVolume);
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
