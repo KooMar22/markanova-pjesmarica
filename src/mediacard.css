@@ -169,7 +169,5 @@
 }
 
 @media (orientation: portrait) {
-    .card > * {
-        height: 8dvh;
-    }
+
 }
