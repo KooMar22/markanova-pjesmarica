@@ -35,6 +35,10 @@ export const useAudioPlayer = (initialVolume = 50, songs, musicNumber, setMusicN
                 setCurrentTime(audioRef.current.currentTime);
             };
 
+            const handleVolumeChange = () => {
+                setVolume(audioRef.current.volume * 100);
+            };
+
             const handleEnded = () => {
                 switch (repeat) {
                     case "repeat":
@@ -57,6 +61,7 @@ export const useAudioPlayer = (initialVolume = 50, songs, musicNumber, setMusicN
 
             audioRef.current.addEventListener('loadedmetadata', handleLoadedMetadata);
             audioRef.current.addEventListener('timeupdate', handleTimeUpdate);
+            audioRef.current.addEventListener('volumechange', handleVolumeChange);
             audioRef.current.addEventListener('ended', handleEnded);
 
             if (play) {
@@ -67,6 +72,7 @@ export const useAudioPlayer = (initialVolume = 50, songs, musicNumber, setMusicN
                 audioRef.current.pause();
                 audioRef.current.removeEventListener('loadedmetadata', handleLoadedMetadata);
                 audioRef.current.removeEventListener('timeupdate', handleTimeUpdate);
+                audioRef.current.removeEventListener('volumechange', handleVolumeChange)
                 audioRef.current.removeEventListener('ended', handleEnded);
             };
         }

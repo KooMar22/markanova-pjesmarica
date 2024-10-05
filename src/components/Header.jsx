@@ -1,7 +1,7 @@
 function Header() {
   return (
     <header className="header">
-      <h1>Markanova Pjesmarica</h1>
+      <h1>Markova Pjesmarica</h1>
     </header>
   );
 }
