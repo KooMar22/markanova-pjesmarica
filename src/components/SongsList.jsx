@@ -4,7 +4,7 @@ import { timer } from "../utils/timer";
 import { useGenres } from "../services/useGenres";
 import { useSongs } from "../services/useSongs";
 
-const SongsList = ({ open, musicNumber, setMusicNumber, setSongs }) => {
+const SongsList = ({ open, musicNumber, setMusicNumber, setSongs, setPlay }) => {
     // Handle selected genres state
     const [selectedGenre, setSelectedGenre] = useState(null);
     
@@ -22,8 +22,13 @@ const SongsList = ({ open, musicNumber, setMusicNumber, setSongs }) => {
     // Pause playback and reset the song when the genre changes
     const handleGenreChange = (e) => {
         setSelectedGenre(parseInt(e.target.value)); // Set new genre
-        // Reset music number
-        setMusicNumber(0);
+    };
+
+    const handleSongSelect = (index) => {
+        // Set the current song number
+        setMusicNumber(index); 
+        // Automatically play the song
+        setPlay(true); 
     };
 
     if (loadingGenres) return (
@@ -77,8 +82,8 @@ const SongsList = ({ open, musicNumber, setMusicNumber, setSongs }) => {
                     songs.map((song, index) => (
                         <li key={song.id} 
                             onClick={() => {
-                                // Set current song index
-                                setMusicNumber(index); 
+                                // Play the selected song
+                                handleSongSelect(index);
                             }}
                             className={`${musicNumber === index ? "playing" : ""}`}>
                             <div className="row">
