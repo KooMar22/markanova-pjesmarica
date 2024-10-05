@@ -89,7 +89,9 @@ const SongsList = ({ open, musicNumber, setMusicNumber, setSongs }) => {
                         </li>
                     ))
                 ) : (
-                    <p>Select a genre.</p>
+                    <div className="loading-div">
+                        <p>Select a genre.</p>
+                    </div>
                 )}
             </ul>
         </div>
