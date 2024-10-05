@@ -55,7 +55,7 @@ const MediaCard = ({ musicNumber, setMusicNumber, setOpen, songs, open }) => {
 
     useEffect(() => {
         const handleVolumeKeyPress = (e) => {
-            if (e.key === "ArrowUp" || e.target === "VolumeUp") {
+            if (e.key === "ArrowUp") {
                 // Increase volume on arrow up key press
                 setVolume((prevVolume) => {
                     // Increment by 5, max 100
@@ -65,7 +65,7 @@ const MediaCard = ({ musicNumber, setMusicNumber, setOpen, songs, open }) => {
                     }
                     return newVolume;
                 });
-            } else if (e.key === "ArrowDown" || e.target === "VolumeDown") {
+            } else if (e.key === "ArrowDown") {
                 // Decrease volume on arrow down key press
                 setVolume((prevVolume) => {
                     // Decrement by 5, min 0
