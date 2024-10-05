@@ -169,7 +169,7 @@
 }
 
 @media (orientation: portrait) {
-    .main {
+    .body {
         height: 80dvh;
     }
 }
