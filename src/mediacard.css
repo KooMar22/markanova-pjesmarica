@@ -7,8 +7,8 @@
 }
 
 .card .nav {
-    width: 100%;
     display: flex;
+    width: 100%;
     justify-content: center;
 }
 
@@ -19,10 +19,10 @@
 }
 
 .card .portrait {
-    width: 100%;
-    height: 100px;
     display: flex;
     justify-content: center;
+    width: 100%;
+    height: 100px;
     align-items: center;
     position: relative;
     margin-top: 3%;
@@ -63,21 +63,20 @@
 }
 
 .card .timer {
-    width: 100%;
     display: flex;
     justify-content: space-between;
+    width: 100%;
     font-size: 0.8rem;
     color: lightgrey;
 }
 
 .card .controls {
-    width: 100%;
     display: flex;
     justify-content: space-between;
+    width: 100%;
     align-items: center;
     margin-top: 20px;
     margin-bottom: 30px;
-    /* Make it easier to position the volume control */
     position: relative;
 }
 
@@ -87,11 +86,11 @@
 }
 
 .card .controls .play {
+    display: flex;
     width: 3.2rem;
     height: 3.2rem;
     background: linear-gradient(white 0%, lightgrey, 100%);
     border-radius: 50%;
-    display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
@@ -117,10 +116,10 @@
 .card .controls .volume {
     display: flex;
     justify-content: space-around;
-    z-index: 10;
-    position: absolute;
     width: 95%;
     height: 10px;
+    z-index: 10;
+    position: absolute;
     background: transparent;
     top: 50px;
     bottom: -10%;

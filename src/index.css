@@ -6,7 +6,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("./assets/images/bg-img.jpg");
+  background-image: url("../public/images/bg-img.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -37,13 +37,13 @@ body {
 main {
   display: flex;
   flex-direction: column;
+  margin: 0;
+  padding: 0;
   border-radius: 15px;
   border: 1px solid darkslategrey;
   box-shadow: 0 0 20px black;
   overflow: hidden;
   backdrop-filter: blur(3px);
-  margin: 0;
-  padding: 0;
 }
 
 i {

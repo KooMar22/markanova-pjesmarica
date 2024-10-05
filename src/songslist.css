@@ -18,19 +18,18 @@
 
 .loading-div {
     display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
     justify-content: center;
     text-align: center;
     align-items: center;
-    height: 100%;
-    width: 100%;
 }
 
-
-
 .list .header {
+    display: flex;
     width: 100%;
     padding: 15px 20px;
-    display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
