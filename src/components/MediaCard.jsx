@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useEffect, useState } from "react";
 import { useAudioPlayer } from "../hooks/useAudioPlayer";
 import "../mediacard.css";
 import { timer } from "../utils/timer";
@@ -42,6 +42,37 @@ const MediaCard = ({ musicNumber, setMusicNumber, setOpen, songs, open }) => {
             audioRef.current.volume = newVolume / 100;
         }
     };
+
+
+    useEffect(() => {
+        const handleVolumeKeyPress = (e) => {
+            if (e.key === 'ArrowUp') {
+                // Increase volume on arrow up key press
+                setVolume((prevVolume) => {
+                    // Increment by 5, max 100
+                    const newVolume = Math.min(prevVolume + 5, 100); 
+                    if (audioRef.current) {
+                        audioRef.current.volume = newVolume / 100;
+                    }
+                    return newVolume;
+                });
+            } else if (e.key === 'ArrowDown') {
+                // Decrease volume on arrow down key press
+                setVolume((prevVolume) => {
+                    // Decrement by 5, min 0
+                    const newVolume = Math.max(prevVolume - 5, 0); 
+                    if (audioRef.current) {
+                        audioRef.current.volume = newVolume / 100;
+                    }
+                    return newVolume;
+                });
+            }
+        };
+        window.addEventListener('keydown', handleVolumeKeyPress);
+        return () => {
+            window.removeEventListener('keydown', handleVolumeKeyPress);
+        };
+    }, [audioRef, setVolume]);
 
     // Define songs info
     const currentSong = songs[musicNumber] || {};
