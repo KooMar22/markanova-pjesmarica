@@ -29,14 +29,24 @@ const MediaCard = ({ musicNumber, setMusicNumber, setOpen, songs, open }) => {
     };
 
     const handleMute = () => {
-        setIsMuted(prev => !prev);
-        if (audioRef.current) {
-            audioRef.current.muted = !audioRef.current.muted;
-        }
+        setIsMuted(prev => {
+            const newMuteState = !prev;
+            if (audioRef.current) {
+                audioRef.current.muted = newMuteState;
+                if (newMuteState) {
+                    // Reset volume to 0 when muted
+                    setVolume(0); 
+                } else {
+                    // Set back to a default volume level when unmuted
+                    setVolume(50); 
+                }
+            }
+            return newMuteState;
+        });
     };
 
     const handleVolumeChange = (e) => {
-        const newVolume = Number(e.target.value);
+        const newVolume = Math.round(Number(e.target.value));
         setVolume(newVolume);
         if (audioRef.current) {
             audioRef.current.volume = newVolume / 100;

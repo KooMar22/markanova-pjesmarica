@@ -15,6 +15,30 @@ export const useAudioPlayer = (initialVolume = 50, songs, musicNumber, setMusicN
         }
     }, [volume]);
 
+    // Listen for volume change events (when using mobile device buttons)
+    useEffect(() => {
+        const audio = audioRef.current;
+
+        const handleVolumeChange = () => {
+            if (audio) {
+                // Convert to percentage
+                const newVolume = audio.volume * 100; 
+                // Update state
+                setVolume(newVolume); 
+            }
+        };
+
+        if (audio) {
+            audio.addEventListener("volumechange", handleVolumeChange);
+        }
+
+        return () => {
+            if (audio) {
+                audio.removeEventListener("volumechange", handleVolumeChange);
+            }
+        };
+    }, [audioRef]);
+
     // Handle audio playback and events
     useEffect(() => {
         if (songs.length > 0 && musicNumber < songs.length) {
