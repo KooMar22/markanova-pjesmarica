@@ -163,6 +163,7 @@
     .blurred {
         -webkit-filter: blur(5px);
         filter: blur(5px);
+        background: rgba(0, 0, 0, 0.8);
         transition: filter 0.3s ease;
     }
 
